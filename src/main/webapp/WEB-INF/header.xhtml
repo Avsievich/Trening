@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: BoostBrain
+  Date: 02.07.17
+  Time: 20:19
+-->
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+    <h:form>
+        <p:toolbar>
+            <f:facet name="left">
+                <p:commandButton type="button" value="New" icon="ui-icon-document"/>
+
+                <p:commandButton type="button" value="Open" icon="ui-icon-folder-open"/>
+
+            <span class="ui-separator">
+                <span class="ui-icon ui-icon-grip-dotted-vertical"/>
+            </span>
+
+                <p:commandButton type="button" title="Save" icon="ui-icon-disk"/>
+                <p:commandButton type="button" title="Delete" icon="ui-icon-trash"/>
+                <p:commandButton type="button" title="Print" icon="ui-icon-print"/>
+            </f:facet>
+
+            <f:facet name="right">
+                <p:menuButton value="Options">
+                    <p:menuitem value="Save" icon="ui-icon-disk"/>
+                    <p:menuitem value="Update" icon="ui-icon-arrowrefresh-1-w"/>
+                    <p:menuitem value="Delete" ajax="false" icon="ui-icon-close"/>
+                    <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink"/>
+                </p:menuButton>
+            </f:facet>
+
+        </p:toolbar>
+    </h:form>
+</ui:composition>

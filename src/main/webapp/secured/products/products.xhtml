@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: BoostBrain
+  Date: 02.07.17
+  Time: 20:53
+-->
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="../../WEB-INF/template.xhtml">
+    <ui:define name="page_title">
+        Список товаров
+    </ui:define>
+
+    <ui:define name="page_body">
+
+        <h:form id="main_form">
+            <ui:include src="../../WEB-INF/products/dialogs.xhtml" />
+
+            <table>
+                <tr>
+                    <td>
+                        <h:outputText value="Цена"/>
+                    </td>
+                    <td>
+                        <h:inputText value="#{productsListBean.newProduct.price}"/>
+                    </td>
+                    <td>
+                        <h:outputText value="Наименование"/>
+                    </td>
+                    <td>
+                        <h:inputText value="#{productsListBean.newProduct.name}"/>
+                    </td>
+                    <td>
+                        <p:commandButton value="Создать"
+                                         action="#{productsListBean.createNewProduct()}"
+                                         update="products_table"/>
+                    </td>
+                </tr>
+            </table>
+
+            <p:dataTable value="#{productsListBean.products}" var="product" id="products_table">
+                <p:column>
+                    <h:outputText value="#{product.name}"/>
+                </p:column>
+
+                <p:column>
+                    <h:outputText value="#{product.price}"/>
+                </p:column>
+
+                <p:column>
+                    <p:commandButton value="Удалить"
+                                     action="#{productsListBean.setIdForDelete(product.id)}"
+                                     oncomplete="PF('delete_dialog').show();"/>
+
+                    <p:commandButton value="Изменить"
+                                     action="#{productsListBean.setEditingProduct(product)}"
+                                     oncomplete="window.location = 'edit_product.xhtml'"/>
+                </p:column>
+
+            </p:dataTable>
+        </h:form>
+
+    </ui:define>
+</ui:composition>

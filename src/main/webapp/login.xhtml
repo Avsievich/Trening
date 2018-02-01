@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: BoostBrain
+  Date: 27.08.17
+  Time: 20:15
+-->
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="WEB-INF/template.xhtml">
+    <ui:define name="page_title">
+        Login page
+    </ui:define>
+
+    <ui:define name="page_body">
+        <h:form>
+            <p:panel>
+                <p:outputLabel for="loginInput">Логин</p:outputLabel>
+                <p:inputText id="loginInput" value="#{personBean.login}"/>
+                <br/>
+                <p:outputLabel for="passwordInput">Пароль</p:outputLabel>
+                <p:password id="passwordInput" value="#{personBean.password}"/>
+                <br/>
+                <p:commandButton value="Войти" action="#{personBean.doLogin()}"/>
+            </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>
